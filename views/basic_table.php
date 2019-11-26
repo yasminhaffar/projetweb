@@ -272,7 +272,7 @@ $listePromotions=$promotion1C->afficherPromotion();
                 <a href="basic_table.html">Basic Table</a>
               </li>              </li>
               <li>
-                <a href="advanced_form_components.html">AJOUTER PROMOTION</a>
+                <a href="ajoutetmodifier.php">AJOUTER PROMOTION</a>
               </li>
               <li>
                 <a href="form_validation.html">Form Validation</a>
@@ -308,9 +308,9 @@ $listePromotions=$promotion1C->afficherPromotion();
                 <thead>
                   <tr>
                     <th><i class="fa fa-bullhorn"></i> ID PROMOTION </th>
-                    <th class="hidden-phone"><i class="fa fa-question-circle"></i> DATE DEBUT</th>
-                    <th><i class="fa fa-bookmark"></i> DATE FIN</th>
-                    <th><i class=" fa fa-edit"></i> SOLDE </th>
+                    <th class="hidden-phone"><i class="fa fa-question-circle"></i>SOLDE</th>
+                    <th><i class="fa fa-bookmark"></i> DATE DEBUT</th>
+                    <th><i class=" fa fa-edit"></i> DATE FIN </th>
                    
                      <th>NOM PRODUIT</th>
                       <th></th>
@@ -321,11 +321,32 @@ $listePromotions=$promotion1C->afficherPromotion();
 foreach($listePromotions as $row){
   ?>
   <tr>
-  <td><?PHP echo $row['idpromo']; ?></td>
-  <td><?PHP echo $row['dated']; ?></td>
-  <td><?PHP echo $row['datef']; ?></td>
+  <td><?PHP echo $row['id_promo']; ?></td>
   <td><?PHP echo $row['solde']; ?></td>
-  <td><?PHP echo $row['nom']; ?></td>
+  <td><?PHP echo $row['datedebut']; ?></td>
+  <td><?PHP echo $row['datefin']; ?></td>
+  <td><?PHP echo $row['nomproduit']; ?></td>
+
+              
+            
+            
+           
+            <td>
+              <form method="POST" action="supprimerpromotion.php">
+  <input type="submit" class="btn btn-theme04" name="supprimer" value="supprimer">
+    <input type="hidden" value="<?PHP echo $row['id_promo']; ?>" name="id">
+
+  </form>
+            </td>
+            <td>
+               <form method="POST" action="modifierPromotion.php">
+  <input type="submit" class="btn btn-theme03" name="modifier" value="modifier">
+  
+  </form>
+
+                        </td>
+
+                                    
   
   <?PHP
 }
