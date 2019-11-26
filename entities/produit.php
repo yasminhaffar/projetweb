@@ -30,29 +30,21 @@ function getprixp()
 
 
 function getqtep() 
-{return $this->qteprod;}
+{return $this->qquantitee;}
 
 
 function getnomp()
-{return $this->nomprod;
+{return $this->nomproduit;
 }
 
-function getcatp()
-{return $this->catprod;
-}
-
-function getphotop()
-{return $this->photoprod;
-}
-
-function getdispop()
-{return $this->dispoprod;
+function getcouleurp()
+{return $this->couleur;
 }
 
 
 
-function set_refp($refprod)
-{$this->refprod =$refprod;}
+function set_idp($id)
+{$this->id =$id;}
 
 }
 

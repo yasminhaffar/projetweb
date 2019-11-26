@@ -5,12 +5,14 @@ class Promotion{
 	private $solde;
 	private $date_debut;
 	private $date_fin; 
-	private $nomproduit; 
+	private $product_id; 
 
-	public function __construct($id, $dated, $datef, $solde, $nom){
+	public function __construct($dated, $datef, $solde, $product_id, $id = null){
+		if(!is_null($id))
 		$this->id_promo = $id;
+
 		$this->solde = $solde;
-		$this->nomproduit = $nom;
+		$this->product_id = $product_id;
 		$this->date_fin = $datef;
 		$this->date_debut = $dated;
 
@@ -31,9 +33,9 @@ class Promotion{
 	{
 		return $this->date_fin;
 	}
-	public function get_nom_produit()
+	public function getProductId()
 	{
-		return $this->nomproduit;
+		return $this->product_id;
 	}
 
 
@@ -54,9 +56,9 @@ class Promotion{
 	{
 		$this->datefin=$datefin;
 	}
-	public function set_nom_produit($nomproduit)
+	public function setProductId($id)
 	{
-		$this->nomproduit=$nomproduit;
+		$this->product_id=$id;
 	}
 
 	

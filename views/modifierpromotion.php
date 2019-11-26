@@ -6,14 +6,16 @@
 include "../entities/promotion.php";
 include "../core/promotionC.php";
 if (isset($_GET['id'])){
+	$id = $_GET['id'];
 	$promotionC=new PromotionC();
-    $result=$promotionC->recupererPromotion($_GET['id']);
-	foreach($result as $row){
-		$id=$row['id_promo'];
-		$dated=$row['datedebut'];
-		$datef=$row['datefin'];
-		$solde=$row['solde'];
-		$nom=$row['nomproduit'];
+    $result=$promotionC->recupererPromotion($id);
+    var_dump($result);
+	
+		$id=$result['id_promo'];
+		$datedebut=$result['datedebut'];
+		$datefin=$result['datefin'];
+		$solde=$result['solde'];
+		$nom=$result['nomproduit'];
 ?>
 <form method="POST">
 <table>
@@ -36,7 +38,7 @@ if (isset($_GET['id'])){
 </tr>
 <tr>
 <td>tarif horaire</td>
-<td><input type="text" name="nom" value="<?PHP echo $nomproduit ?>"></td>
+<!-- <td><input type="text" name="nom" value="<?PHP echo $nomproduit ?>"></td> -->
 </tr>
 <tr>
 <td></td>
@@ -49,14 +51,14 @@ if (isset($_GET['id'])){
 </table>
 </form>
 <?PHP
-	}
+//	}
 }
-if (isset($_POST['id']) and isset($_POST['solde']) and isset($_POST['datedebut']) and isset($_POST['datefin']) and isset($_POST['nom'])){
+/*if (isset($_POST['id']) and isset($_POST['solde']) and isset($_POST['datedebut']) and isset($_POST['datefin']) and isset($_POST['nom'])){
 	$promotion=new promotion($_POST['id'],$_POST['solde'],$_POST['datedebut'],$_POST['datefin'],$_POST['nom']);
 	$promotionC->modifierPromotion($promotion,$_POST['id_ini']);
 	echo $_POST['id_ini'];
 	header('Location: basic_table.php');
-}
+}*/
 ?>
 </body>
 </HTMl>
